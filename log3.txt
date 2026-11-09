@@ -1,0 +1,13 @@
+F601 Dictionary key literal `"first_value"` repeated
+ --> calculator.py:5:5
+  |
+3 | history = {
+4 |     "first_value": 1,
+5 |     "first_value": 2,
+  |     ^^^^^^^^^^^^^
+6 |     "second_value": 3,
+7 | }
+  |
+help: Remove repeated key literal `"first_value"`
+
+Found 1 error.

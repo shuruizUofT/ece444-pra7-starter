@@ -1,0 +1,37 @@
+F841 Local variable `unused` is assigned to but never used
+ --> calculator.py:4:5
+  |
+3 | def add(a,b):
+4 |     unused = 123
+  |     ^^^^^^
+5 |     return a + b
+  |
+help: Remove assignment to unused variable `unused`
+  |
+3 | def add(a,b):
+  -     unused = 123
+4 |     return a + b
+  |
+note: This is an unsafe fix and may change runtime behavior
+
+B006 Do not use mutable data structures for argument defaults
+  --> calculator.py:8:27
+   |
+ 8 | def record(value, history=[]):
+   |                           ^^
+ 9 |     history.append(value)
+10 |     return history
+   |
+help: Replace with `None`; initialize within function
+   |
+7  |
+   - def record(value, history=[]):
+8  + def record(value, history=None):
+9  +     if history is None:
+10 +         history = []
+11 |     history.append(value)
+   |
+note: This is an unsafe fix and may change runtime behavior
+
+Found 3 errors (1 fixed, 2 remaining).
+2 unsafe fixes available with `--fix --unsafe-fixes`.
